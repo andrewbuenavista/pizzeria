@@ -21,7 +21,7 @@ def pizza(request,pizza_id):
 
     toppings = pizza.topping_set.all()
     comments = pizza.comment_set.all()
-    images = pizza.image_set.all()
+    images = pizza.image_set.get()
 
 
     context = {'pizza':pizza,'toppings':toppings,'comments':comments,'images':images}
