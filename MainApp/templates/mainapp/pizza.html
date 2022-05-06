@@ -1,0 +1,28 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p style='text-align: center;font-size: 45;'>{{ pizza }} Pizza</p>
+
+<ul style='text-align: center'>
+    <p>Toppings on this pizza:</p>
+    {% for t in toppings %}
+    <p>{{t}}</p>
+    {% empty %}
+    <p> No toppings for this pizza. </p>
+    {% endfor %}
+
+    <p>Customer comments on this pizza:</p>
+    {% for c in comments %}
+    <p>{{c}}</p>
+    
+    {% empty %}
+    <p> No comments </p>
+    {% endfor %}
+</ul>
+
+<p style='text-align: center;' ><a href= "{% url 'MainApp:comment' pizza.id %}">Add a new comment</a></p>
+{% for x in images %}
+<p style = 'text-align: center;'> <img src = "{{ x.image.url }}" alt = "{{ images.image }}"/> </p>
+{% endfor %}
+{% endblock content %}

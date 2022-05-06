@@ -1,0 +1,15 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p style='font-size:45'>Pizzas</p>
+
+<ul style = 'font-size:22'>
+    {% for p in pizzas %}
+    <li><a href="{% url 'MainApp:pizza' p.id %}">{{ p }}</a></li>
+    {% empty %}
+    <li> No topics have been added yet. </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
